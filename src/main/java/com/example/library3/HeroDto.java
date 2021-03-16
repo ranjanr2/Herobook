@@ -21,4 +21,6 @@ public class HeroDto {
     String agility;
     String description;
     String story;
+
+
 }

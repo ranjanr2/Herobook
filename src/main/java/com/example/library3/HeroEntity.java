@@ -34,6 +34,7 @@ public class HeroEntity {
     String description;
     String story;
 
+
     public HeroEntity(String realName, String heroName, String image,
                       String height, String weight, String specialpower, String intelligence,
                       String strength,String power, String speed, String agility,
@@ -52,4 +53,5 @@ public class HeroEntity {
         this.description = description;
         this.story = story;
     }
+
 }

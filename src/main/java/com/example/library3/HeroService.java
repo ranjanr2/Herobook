@@ -53,4 +53,35 @@ public class HeroService {
                 })
                 .collect(Collectors.toList());
     }
+
+    public List<HeroDto> GetHeroByName(String name) {
+        List<HeroEntity> heros =  heroRepository.findAll()
+                .stream()
+                .filter(en ->{
+                    return en.realName.equals(name);
+                }).collect(Collectors.toList());
+
+         if(!heros.isEmpty())
+         {
+             return heros.stream().map(heroEntity -> {
+                return new HeroDto(heroEntity.getRealName(),
+                         heroEntity.getHeroName(),
+                         heroEntity.getImage(),
+                         heroEntity.getHeight(),
+                         heroEntity.getWeight(),
+                         heroEntity.getSpecialpower(),
+                         heroEntity.getIntelligence(),
+                         heroEntity.getStrength(),
+                         heroEntity.getPower(),
+                         heroEntity.getSpeed(),
+                         heroEntity.getAgility(),
+                         heroEntity.getDescription(),
+                         heroEntity.getStory());
+                 }).collect(Collectors.toList());
+         }
+         else
+         {
+
+         }
+    }
 }
