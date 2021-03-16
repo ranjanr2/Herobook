@@ -17,15 +17,39 @@ public class HeroService {
 
     public void create(HeroDto heroDto) {
         heroRepository.save(
-                new HeroEntity(heroDto.getTitle(),
-                                heroDto.getHeroName()));
+                new HeroEntity(heroDto.getRealName(),
+                        heroDto.getHeroName(),
+                        heroDto.getImage(),
+                        heroDto.getHeight(),
+                        heroDto.getWeight(),
+                        heroDto.getSpecialpower(),
+                        heroDto.getIntelligence(),
+                        heroDto.getStrength(),
+                        heroDto.getPower(),
+                        heroDto.getSpeed(),
+                        heroDto.getAgility(),
+                        heroDto.getDescription(),
+                        heroDto.getStory()
+                        ));
     }
 
     public List<HeroDto> fetchAll() {
         return heroRepository.findAll()
                 .stream()
                 .map(heroEntity -> {
-                    return new HeroDto(heroEntity.getTitle(), heroEntity.getHeroName());
+                    return new HeroDto(heroEntity.getRealName(),
+                            heroEntity.getHeroName(),
+                            heroEntity.getImage(),
+                            heroEntity.getHeight(),
+                            heroEntity.getWeight(),
+                            heroEntity.getSpecialpower(),
+                            heroEntity.getIntelligence(),
+                            heroEntity.getStrength(),
+                            heroEntity.getPower(),
+                            heroEntity.getSpeed(),
+                            heroEntity.getAgility(),
+                            heroEntity.getDescription(),
+                            heroEntity.getStory());
                 })
                 .collect(Collectors.toList());
     }

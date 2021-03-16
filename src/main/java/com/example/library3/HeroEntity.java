@@ -20,11 +20,36 @@ public class HeroEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    String title;
+    String realName;
     String heroName;
+    String image;
+    String height;
+    String weight;
+    String specialpower;
+    String intelligence;
+    String strength;
+    String power;
+    String speed;
+    String agility;
+    String description;
+    String story;
 
-    public HeroEntity(String title, String heroName) {
-        this.title = title;
+    public HeroEntity(String realName, String heroName, String image,
+                      String height, String weight, String specialpower, String intelligence,
+                      String strength,String power, String speed, String agility,
+                      String description, String story) {
+        this.realName = realName;
         this.heroName = heroName;
+        this.image = image;
+        this.height = height;
+        this.weight = weight;
+        this.specialpower = specialpower;
+        this.intelligence = intelligence;
+        this.strength = strength;
+        this.power = power;
+        this.speed = speed;
+        this.agility = agility;
+        this.description = description;
+        this.story = story;
     }
 }
