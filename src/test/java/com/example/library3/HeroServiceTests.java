@@ -21,14 +21,18 @@ public class HeroServiceTests {
     @InjectMocks
     HeroService subject;
 
-//    @Test
-//    void create() {
-//       HeroDto heroDto = new HeroDto("Mr", "John Smith");
-//       subject.create(heroDto);
-//       verify(mockHeroRepository).save(
-//               new HeroEntity("Mr", "John Smith")
-//       );
-//    }
+    @Test
+    void createAHero() {
+       HeroDto heroDto = new HeroDto("Zach", "Zachkry Neagley","Dummy Image","6","200","JavaBeans","10","500","60","6","Test Desc","Zach Story","Story2");
+       subject.create(heroDto);
+       verify(mockHeroRepository).save(
+               new HeroEntity("Zach", "Zachkry Neagley","Dummy Image",
+                       "6","200","JavaBeans","10","500","60","6",
+                       "Test Desc","Zach Story","Story2")
+       );
+    }
+
+
     //Get All Heros
     @Test
     void GetAllHeros() {
