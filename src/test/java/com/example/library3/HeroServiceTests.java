@@ -63,7 +63,7 @@ public class HeroServiceTests {
 
     //Get All Heros
     @Test
-    void GetHeroByName() {
+    void GetHeroByName() throws Exception {
         // S Seat
         HeroEntity heroEntity1 = new HeroEntity("Rohit", "Rohit Ranjan","Dummy Image2",
                 "6","200","JavaBeans","10","500","60","6",
@@ -82,7 +82,8 @@ public class HeroServiceTests {
                 )
         );
 
-        // E Exercise
+       // E Exercise
+
         List<HeroDto> actual = subject.GetHeroByName("Zach");
 
         // A Assert
@@ -95,7 +96,7 @@ public class HeroServiceTests {
         );
     }
     @Test
-    void TryInvalidName() {
+    void TryInvalidName() throws Exception {
         // S Seat
         HeroEntity heroEntity1 = new HeroEntity("Rohit", "Rohit Ranjan","Dummy Image2",
                 "6","200","JavaBeans","10","500","60","6",
@@ -115,16 +116,13 @@ public class HeroServiceTests {
         );
 
         // E Exercise
-        List<HeroDto> actual = subject.GetHeroByName("Wes");
-
-        // A Assert
-        assertThat(actual).isEqualTo(
-                List.of(
-                        new HeroDto("Zach", "Zachkry Neagley","Dummy Image",
-                                "6","200","JavaBeans","10","500","60","6",
-                                "Test Desc","Zach Story","Story2")
-                )
-        );
+        try{
+            subject.GetHeroByName("Wes");
+        }
+        catch (Exception ex)
+        {
+            assertThat(ex.getMessage()).contains("Invalid Hero Name");
+        }
     }
 
 }

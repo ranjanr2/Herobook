@@ -1,9 +1,9 @@
 package com.example.library3;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Getter
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,6 +21,4 @@ public class HeroDto {
     String agility;
     String description;
     String story;
-
-
 }

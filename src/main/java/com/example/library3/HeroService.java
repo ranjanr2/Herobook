@@ -54,7 +54,7 @@ public class HeroService {
                 .collect(Collectors.toList());
     }
 
-    public List<HeroDto> GetHeroByName(String name) {
+    public List<HeroDto> GetHeroByName(String name) throws Exception {
         List<HeroEntity> heros =  heroRepository.findAll()
                 .stream()
                 .filter(en ->{
@@ -81,7 +81,7 @@ public class HeroService {
          }
          else
          {
-
+             throw new Exception("Invalid Hero Name");
          }
     }
 }
