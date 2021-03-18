@@ -21,6 +21,7 @@ public class HeroServiceTests {
     @InjectMocks
     HeroService subject;
 
+
     @Test
     void createAHero() {
        HeroDto heroDto = new HeroDto("Zach", "Zachkry Neagley","Dummy Image","6","200","JavaBeans","10","500","60","6","Test Desc","Zach Story","Story2");
@@ -31,8 +32,6 @@ public class HeroServiceTests {
                        "Test Desc","Zach Story","Story2")
        );
     }
-
-
     //Get All Heros
     @Test
     void GetAllHeros() {
@@ -64,7 +63,6 @@ public class HeroServiceTests {
                 )
         );
     }
-
     //Get All Heros
     @Test
     void GetHeroByName() throws Exception {
@@ -99,6 +97,7 @@ public class HeroServiceTests {
                 )
         );
     }
+    //GetheroByName Invalid scenario
     @Test
     void TryInvalidName() throws Exception {
         // S Seat
@@ -128,5 +127,7 @@ public class HeroServiceTests {
             assertThat(ex.getMessage()).contains("Invalid Hero Name");
         }
     }
+
+
 
 }

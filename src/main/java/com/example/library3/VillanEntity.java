@@ -15,11 +15,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Getter
 @Setter
-public class HeroEntity {
+public class VillanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-
+    String archRival;
     String realName;
     String heroName;
     String image;
@@ -35,11 +35,11 @@ public class HeroEntity {
     String story;
 
 
-    public HeroEntity(String realName, String heroName, String image,
-                      String height, String weight, String specialpower, String intelligence,
-                      String strength,String power, String speed, String agility,
-                      String description, String story) {
-
+    public VillanEntity(String arch,String realName, String heroName, String image,
+                        String height, String weight, String specialpower, String intelligence,
+                        String strength, String power, String speed, String agility,
+                        String description, String story) {
+        this.archRival = arch;
         this.realName = realName;
         this.heroName = heroName;
         this.image = image;
