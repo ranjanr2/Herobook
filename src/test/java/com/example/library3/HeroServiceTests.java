@@ -32,7 +32,41 @@ public class HeroServiceTests {
                        "Test Desc","Zach Story","Story2")
        );
     }
+
+    @Test
+    void updateAHero() throws Exception {
+        when(mockHeroRepository.findAll()).thenReturn(
+                List.of(
+                        new HeroEntity("Zach", "Zachkry Neagley","Dummy Image","6","200","JavaBeans","10","500","60","6","Test Desc","Zach Story","Story2")
+                )
+        );
+        HeroDto heroDto1 = new HeroDto("Zach", "Zachkry Neagley","Dummy Image3","6","200","JavaBeans","10","500","60","6","Test Desc","Zach Story","Story2");
+        subject.update(heroDto1);
+        List<HeroDto> actual = subject.GetHeroByName("Zach");
+        // A Assert
+        assertThat(actual).isEqualTo(
+                List.of(
+                        new HeroDto("Zach", "Zachkry Neagley","Dummy Image3",
+                                "6","200","JavaBeans","10","500","60","6",
+                                "Test Desc","Zach Story","Story2")
+                )
+        );
+
+    }
     //Get All Heros
+//
+//    @Test
+//    void updateAHero() {
+//        HeroDto heroDto = new HeroDto("Zach", "Zachkry Neagley","Dummy Image3","6","200","JavaBeans","10","500","60","6","Test Desc","Zach Story","Story2");
+//        subject.update(heroDto);
+//        verify(mockHeroRepository).save(
+//                new HeroEntity("Zach", "Zachkry Neagley","Dummy Image3",
+//                        "6","200","JavaBeans","10","500","60","6",
+//                        "Test Desc","Zach Story","Story2")
+//        );
+//    }
+    //Get All Heros
+
     @Test
     void GetAllHeros() {
         // S Seat
